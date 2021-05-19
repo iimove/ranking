@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>排名</title>
+</head>
+<body>
+<div>
+    <h2>{{ user.username }}</h2>
+</div>
+<div>
+    <a href="/logout/">
+        退出登录
+    </a>
+</div>
+<div>
+
+    <form method="post">
+        {%csrf_token%}
+        排行榜查询<br>
+
+        起始排名<input type="text" name="start" id="start">---
+        终止排名<input type="text" name="end" id="end">
+        <br>
+        <input type="submit">
+    </form>
+</div>
+<div>
+     <table>
+        <thead>
+        <tr>
+            <th>排名</th>
+            <th>客户端</th>
+            <th>分数</th>
+        </tr>
+        </thead>
+        {% for user in user_list %}
+        <tr>
+            <td>{{ user.ranking }}</td>
+            <td>{{ user.userNumber }}</td>
+            <td>{{ user.fraction }}</td>
+        </tr>
+         {% endfor %}
+        <tr>
+            <td>{{ user.ranking }}</td>
+            <td>{{ user.userNumber }}</td>
+            <td>{{ user.fraction }}</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

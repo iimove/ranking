@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页面</title>
+</head>
+<body>
+<h2>{{ user.username }}</h2>
+<div>
+
+    <form method="post">
+        {%csrf_token%}
+        上传分数:<input type="text" id="fraction" name="fraction">
+        <input type="submit" value="提交">
+
+        {{ status }}
+
+    </form>
+
+</div>
+<div>
+    <a href="/rank/">
+        排行榜查询
+    </a>
+    <a href="/logout/">
+        退出登录
+    </a>
+</div>
+</body>
+</html>
